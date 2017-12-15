@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <title>Imagen Editor</title>
+  <title>Editor de Imagenes</title>
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -36,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="logo" href="index.html"><img src="img/logo.svg" alt="Logo"></a>
+          <a class="logo" href="index.html"><p style="font-size: 20px; color: #fff">Logo</p></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -50,7 +50,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-6">
-            <a href="index.html">t<img src="img/logo.svg" alt="Logo"></a>
+            <a href="index.html"><p style="font-size: 50px; color: #fff">Logo</p></a>
           </div>
           <div class="col-xs-6 signin text-right navbar-nav">
             <a href="#inicio" class="scroll">Inicio</a>&nbsp; &nbsp;
@@ -63,7 +63,33 @@
     
     <!--<div class="mouse-icon hidden-xs">
 				<div class="scroll"></div>
-			</div>-->
+      </div>-->
+      
+    <!--
+      Notificaciones del sitio web
+
+    -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="notificacion" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Alerta del sitio web</h4>
+          </div>
+          <div class="modal-body">
+            <p id="contenido"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
       
     <section id="inicio" class="pad-sm">
 	    <div class="container">
@@ -71,74 +97,51 @@
             <h2 style="color: #333; text-align: center">Selecciona un Formato</h2>
         </div>
 		    <div class="row pad-sm">
-			    <div class="col-sm-3 wow fadeIn" data-wow-delay="0.4s">
 
-            <img src="img/archivo.svg" style="margin: auto; display: block; width: 70%" />
+			    <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+
+            <img src="img/archivo.svg" class="imagen-formato"/>
 
 				    <hr class="line purple">
-            <h3 class="center-text">Formato 01</h3>
-            <button onClick="editarFormato()" class="btn btn-primary" style="margin-top: 8px; text-align:center">Seleccionar</button>
-			    </div>
-			    <div class="col-sm-3 wow fadeIn" data-wow-delay="0.8s">
+            <h4 class="center-text"><strong>Formato:</strong><br> 235 x 320 mm</h4>
+            <h4 class="center-text"><strong>Borde:</strong><br> 20 mm</h4>
+            <h4 class="center-text"><strong>Aréa de edición:</strong> <br>195 x 280 mm</h4>
+            <button onClick="abrirFormato(this)" id="formato1" name="formato1" class="btn btn-primary" style="margin-top: 10px; text-align:center">Seleccionar</button>
+          </div>
 
-            <img src="img/archivo.svg" style="margin: auto; display: block; width: 70%" />
+			    <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay="0.8s">
+
+            <img src="img/archivo.svg" class="imagen-formato" />
 
 				    <hr  class="line blue">
-            <h3 class="center-text">Formato 02</h3>
-            <button onClick="editarFormato()" class="btn btn-primary" style="margin-top: 8px; text-align:center">Seleccionar</button>
-			    </div>
-			    <div class="col-sm-3 wow fadeIn" data-wow-delay="1.2s">
+            <h4 class="center-text"><strong>Formato:</strong><br> 170 x 320 mm</h4>
+            <h4 class="center-text"><strong>Borde:</strong><br> 17 mm</h4>
+            <h4 class="center-text"><strong>Aréa de edición:</strong> <br>136 x 286 mm</h4>
+            <button onClick="abrirFormato(this)"  id="formato2" name="formato2" class="btn btn-primary" style="margin-top: 10px; text-align:center">Seleccionar</button>
+          </div>
 
-            <img src="img/archivo.svg" style="margin: auto; display: block; width: 70%" />
+			    <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay="1.2s">
+
+            <img src="img/archivo.svg" class="imagen-formato" />
 
 				    <hr  class="line yellow">
-            <h3 class="center-text">Formato 03</h3>
-            <button onClick="editarFormato()" class="btn btn-primary" style="margin-top: 8px; text-align:center">Seleccionar</button>
+            <h4 class="center-text"><strong>Formato:</strong><br> 235 x 235 mm</h4>
+            <h4 class="center-text"><strong>Borde:</strong><br> 20 mm</h4>
+            <h4 class="center-text"><strong>Aréa de edición:</strong> <br>195 x 195 mm</h4>
+            <button onClick="abrirFormato(this)"  id="formato3" name="formato3" class="btn btn-primary" style="margin-top: 10px; text-align:center">Seleccionar</button>
           </div>
-          <div class="col-sm-3 wow fadeIn" data-wow-delay="1.2s">
+          
+          <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay="1.2s">
 
-              <img src="img/archivo.svg" style="margin: auto; display: block; width: 70%" />
+              <img src="img/archivo.svg" class="imagen-formato" />
 
               <hr  class="line red">
-              <h3 class="center-text">Formato 04</h3>
-              <button onClick="editarFormato()" class="btn btn-primary" style="margin-top: 8px; text-align:center">Seleccionar</button>
+              <h4 class="center-text"><strong>Formato:</strong><br> 170 x 230 mm</h4>
+              <h4 class="center-text"><strong>Borde:</strong><br> 17 mm</h4>
+              <h4 class="center-text"><strong>Aréa de edición:</strong> <br>136 x 296 mm</h4>
+              <button onClick="abrirFormato(this)"  id="formato4" name="formato4" class="btn btn-primary" style="margin-top: 10px; text-align:center">Seleccionar</button>
             </div>
         </div>
-        <div class="row pad-sm">
-            <div class="col-sm-3 wow fadeIn" data-wow-delay="0.4s">
-  
-              <img src="img/archivo.svg" style="margin: auto; display: block; width: 70%" />
-  
-              <hr class="line purple">
-              <h3 class="center-text">Formato 05</h3>
-              <button onClick="editarFormato()" class="btn btn-primary" style="margin-top: 8px; text-align:center">Seleccionar</button>
-            </div>
-            <div class="col-sm-3 wow fadeIn" data-wow-delay="0.8s">
-  
-              <img src="img/archivo.svg" style="margin: auto; display: block; width: 70%" />
-  
-              <hr  class="line blue">
-              <h3 class="center-text">Formato 06</h3>
-              <button onClick="editarFormato()" class="btn btn-primary" style="margin-top: 8px; text-align:center">Seleccionar</button>
-            </div>
-            <div class="col-sm-3 wow fadeIn" data-wow-delay="1.2s">
-  
-              <img src="img/archivo.svg" style="margin: auto; display: block; width: 70%" />
-  
-              <hr  class="line yellow">
-              <h3 class="center-text">Formato 07</h3>
-              <button onClick="editarFormato()" class="btn btn-primary" style="margin-top: 8px; text-align:center">Seleccionar</button>
-            </div>
-            <div class="col-sm-3 wow fadeIn" data-wow-delay="1.2s">
-  
-                <img src="img/archivo.svg" style="margin: auto; display: block; width: 70%" />
-  
-                <hr  class="line red">
-                <h3 class="center-text">Formato 08</h3>
-                <button onClick="editarFormato()" class="btn btn-primary" style="margin-top: 8px; text-align:center">Seleccionar</button>
-              </div>
-          </div>
-	    </div>
     </section>
         
     <footer>
@@ -172,17 +175,131 @@
     <script src="js/wow.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/blockUI.js" ></script>
+    <!-- Ideally before closing body tag -->
+    <script data-preload="true" data-path="http://dev.crossware.co/imagen-editor/editor" src="editor/pixie-integrate.js"></script>
 
     <script>
-    
-        function editarFormato(){
+  
+        function abrirFormato(formato){
 
-          location.href ="editor/index.html";
+          var tipo_formato = formato.id;
+          var input;
+
+          var myPixie = Pixie.setOptions({
+              replaceOriginal: true,
+              appendTo: 'body',
+              onError: function(err) {
+                  myPixie.close();
+                  notificar(err.message);
+                  
+              },
+              onSave: function(data, img, name) {
+
+                  $.ajax({
+                      type: 'POST',
+                      url: 'http://dev.crossware.co/imagen-editor/funciones/guardar-imagen.php',
+                      cache: false,
+                      data: { imgData: data, tipo_formato: tipo_formato, nombre: name},
+                      beforeSend:function() {
+            
+                        $.blockUI({ 
+                            
+                            message: '<img src="img/loader.gif" style="margin:auto; display:block;width: 60%" />',
+                            css: { 
+                                textAlign:      'center', 
+                                color:          '#333', 
+                                border:         '0px solid #aaa', 
+                                backgroundColor:'transparent', 
+                                cursor:         'wait' 
+                            }, 
+                            // styles for the overlay 
+                            overlayCSS:  { 
+                                backgroundColor: '#fff', 
+                                 opacity:         0.6,
+                                cursor:          'wait' 
+                            }, 
+                        }
+                        ); 
+                        
+                      },
+                      success:function(data) {
+                                
+                        var json = JSON.parse(data);
+    
+                        if (json.code == "1") {
+    
+                           notificar("Hemos enviado tu diseño al email");
+            
+                        } else {
+                            
+                            notificar("Ocurrio un error enviando la imagen, intentalo de nuevo");
+                                                
+                        }
+                    
+
+                        $.unblockUI();
+              
+                      }
+                  });
+              }
+          });
+
+          switch (formato.id) {
+                    case "formato1":
+                      
+                    myPixie.open({
+                        url: "http://dev.crossware.co/imagen-editor/img/formatos/formato01.png"
+                    });
+
+                        break;
+                    case "formato2":
+                        
+                    myPixie.open({
+                        url: "http://dev.crossware.co/imagen-editor/img/formatos/formato02.png"
+                    });
+                    
+                        break;
+                    
+                    case "formato3":
+                        
+                    myPixie.open({
+                        url: "http://dev.crossware.co/imagen-editor/img/formatos/formato03.png"
+                    });
+                    
+                        break;
+
+                    case "formato4":
+                        
+                    myPixie.open({
+                        url: "http://dev.crossware.co/imagen-editor/img/formatos/formato04.png"
+                    });
+                    
+                        break;
+                
+                    default:
+
+                    myPixie.open({
+                      url: "http://dev.crossware.co/imagen-editor/img/formatos/formato01.jpg"
+                  });
+
+                        break; 
+          
 
         }
-      
-    </script>
 
+      }
+
+      function notificar(texto){
+
+        document.getElementById("contenido").innerHTML = texto;
+
+        $("#notificacion").modal();
+
+      }
+      
+
+    </script>
 
     </body>
 </html>

@@ -4,6 +4,7 @@ angular.module('image.basics')
 
     $scope.setBackground = function(color) {
         canvas.fabric.setBackgroundColor(color);
+        console.log(color);
         canvas.fabric.renderAll();
     };
 

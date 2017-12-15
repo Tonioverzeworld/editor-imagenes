@@ -24,6 +24,7 @@ angular.module('ImageEditor')
         handleIntegrationModeSave: function(format, quality, name) {
             canvas.zoom(1);
             var data = this.getDataUrl(format, quality);
+        
 
             this.handleCallbacks(data, name);
 

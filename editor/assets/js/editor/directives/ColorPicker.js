@@ -28,6 +28,7 @@ angular.module('image.directives')
             },
             setter = function(selectedColor) {
                 $parse(attrs.edColorPicker)($scope, {color: selectedColor.toString()});
+                console.log(selectedColor.toString());
                 el.val(selectedColor.toString());
             };
 

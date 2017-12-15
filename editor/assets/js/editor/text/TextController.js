@@ -6,10 +6,12 @@ angular.module('image.text')
 
 	$scope.opacity = 1;
 	$scope.fontSize = 25;
+	$scope.fill = '#000';
 	$scope.enableOutline = true;
 	$scope.filters = {
 		category: 'handwriting',
-		family: ''
+		family: '',
+		fill: '#000'
 	};
 
     $scope.isPanelEnabled = function() {
@@ -25,7 +27,7 @@ angular.module('image.text')
 			var newText = new fabric.IText('Double click me to edit my contents.', {
 				fontWeight: 400,
 				fontSize: 28 / canvas.currentZoom,
-				fill: '#fff',
+				fill: '#000',
 				removeOnCancel: true,
 				name: 'text'
 			});

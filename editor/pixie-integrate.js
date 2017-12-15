@@ -44,7 +44,7 @@
         },
 
         errors: {
-            invalidImg: "Image you passed in doesn't exist or can't be loaded"
+            invalidImg: "La imagen que pasaste no existe o no se puede cargar"
         },
 
         loaded: false,
@@ -250,7 +250,7 @@
         create: function(callback) {
             this.loading = true;
 
-            var markup = '<section id="pixie-editor-container"><div id="pixie-frame-container"><div id="pixie-editor-header">Pixie Editor<div class="pixie-close">&times;</div></div></div></section>',
+            var markup = '<section id="pixie-editor-container"><div id="pixie-frame-container"><div id="pixie-editor-header">Editor de Imagenes<div class="pixie-close">&times;</div></div></div></section>',
                 link   = document.createElement('link'); link.rel = 'stylesheet'; link.href = this.getPath()+'assets/css/integrate.css';
 
             document.querySelector('head').appendChild(link);

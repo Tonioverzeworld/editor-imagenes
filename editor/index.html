@@ -211,13 +211,11 @@
                                 <div class="menu-header"><h3>Color de Fondo</h3></div>
 
 
-                                <!--<input ed-flat ed-color-picker="setBackground(color)" ng-model="colorPick" name="colorPick" type="text"/>-->
-                                C: <input ng-model="colorC" type="text" style="margin-bottom: 30px; width: 35px;" class="sp-input" />
-                                M: <input ng-model="colorM" type="text" style="margin-bottom: 30px; width: 35px;" class="sp-input" />
-                                Y: <input ng-model="colorY" type="text" style="margin-bottom: 30px;  width: 35px;" class="sp-input" />
-                                K: <input ng-model="colorK" type="text" style="margin-bottom: 30px;  width: 35px;" class="sp-input" />
+                                <input ed-flat ed-color-picker="setBackground(color)" ng-model="colorPick" type="text"/>
                                 <br>
-                                <md-button ng-click="previsualizar()" class="md-primary md-raised" style="margin:auto; display:block">Previsualizar</md-button>
+                                <md-button ng-click="convertir()" class="md-primary md-raised" style="margin:auto; display:block">Obtener CMYK</md-button>
+                                <br>
+                                <p style="text-align: center"><strong>{{colorCMYK}}</strong></p>
                                 <br>
                                 <div class="buttons">
                                     <md-button ng-click="cancel()">Cancelar</md-button>

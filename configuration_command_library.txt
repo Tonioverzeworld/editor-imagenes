@@ -1,0 +1,13 @@
+Configuration commands for additional library
+#install general package
+yum install gcc php-devel php-pear
+yum install ImageMagick ImageMagick-devel --skip-broken
+# Install module for php
+# It will ask you to provide Imagemagick installation prefix, simply hit enter to auto detect
+pecl install imagick
+# Indicate extension for php
+echo "extension=imagick.so" > /etc/php.d/imagick.ini
+# Verifying correct installation
+php -i | grep Imagick
+# Restart service
+service httpd reload

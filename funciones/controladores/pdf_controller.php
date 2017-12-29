@@ -5,13 +5,14 @@ class PDF{
     private $imagen;
     private $formato;
     private $ruta;
+    private $email;
 
-
-    public function __construct($ruta, $formato, $imagen)
+    public function __construct($ruta, $formato, $imagen, $email)
     {
         $this->imagen = $imagen; 
         $this->formato = $formato;
         $this->ruta = $ruta;
+        $this->email = $email;
     }
 
 
@@ -1128,9 +1129,9 @@ class PDF{
         $mail->setFrom('aurelien.antonio@gmail.com', 'Editor de Imagenes');
         $mail -> isHTML(true);
         $mail -> Subject = utf8_decode("Nueva imagen editada desde el sitio web");
-        $mail->addAddress('aurelien.antonio@gmail.com');
-        $mail->addAddress('munozmarinandresfelipe@gmail.com');
-        $mail->addAddress('jass.cruz@gmail.com');
+        $mail->addAddress($this->email);
+        //$mail->addAddress('munozmarinandresfelipe@gmail.com');
+        //$mail->addAddress('jass.cruz@gmail.com');
         $mail -> MsgHTML($body);
         $mail->addStringAttachment($archivo, ''.$nombre.'.pdf', 'base64', 'application/pdf');
     

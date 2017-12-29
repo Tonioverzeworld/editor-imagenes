@@ -213,10 +213,10 @@
 
                                 <input ed-flat ed-color-picker="setBackground(color)" ng-model="colorPick" type="text"/>
                                 <br>
-                                <md-button ng-click="convertir()" class="md-primary md-raised" style="margin:auto; display:block">Obtener CMYK</md-button>
+                                <!--<md-button ng-click="convertir()" class="md-primary md-raised" style="margin:auto; display:block">Obtener CMYK</md-button>
                                 <br>
                                 <p style="text-align: center"><strong>{{colorCMYK}}</strong></p>
-                                <br>
+                                <br>-->
                                 <div class="buttons">
                                     <md-button ng-click="cancel()">Cancelar</md-button>
                                     <md-button ng-click="apply()" class="md-primary md-raised">Aplicar</md-button>
@@ -624,6 +624,11 @@
                     <md-input-container>
                         <label>Nombre del archivo</label>
                         <input type="text" ng-model="imageName" id="nombre_imagen">
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Correo electronico de destino</label>
+                        <input type="email" ng-model="imageEmail" id="email" >
                     </md-input-container>
 
                     <md-radio-group ng-model="imageType" style="margin: auto; display: block">

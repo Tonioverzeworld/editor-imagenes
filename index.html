@@ -28,7 +28,7 @@
 <body>
 
     
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="z-index: 99 !important">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -72,7 +72,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="notificacion" role="dialog">
-      <div class="modal-dialog">
+      <div class="modal-dialog" style="z-index: 999999999">
       
         <!-- Modal content-->
         <div class="modal-content">
@@ -194,13 +194,13 @@
                   notificar(err.message);
                   
               },
-              onSave: function(data, img, name) {
+              onSave: function(data, img, name, email) {
 
                   $.ajax({
                       type: 'POST',
                       url: 'http://dev.crossware.co/imagen-editor/funciones/guardar-imagen.php',
                       cache: false,
-                      data: { imgData: data, tipo_formato: tipo_formato, nombre: name},
+                      data: { imgData: data, tipo_formato: tipo_formato, nombre: name, email: email},
                       beforeSend:function() {
             
                         $.blockUI({ 
@@ -231,7 +231,11 @@
     
                            notificar("Hemos enviado tu diseño al email");
             
-                        } else {
+                        } else if(json.code == "2"){
+
+                          notificar("Debe ingresar un Email destinatario");
+
+                        }else{
                             
                             notificar("Ocurrio un error enviando la imagen, intentalo de nuevo");
                                                 
